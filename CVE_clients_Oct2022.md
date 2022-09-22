@@ -31,7 +31,7 @@ For Services 2.1 and JSON 5.0 testing as of September 2022, use the [cve-service
 By redhat psirt/martinp
 
 ## CVE.js
-JavaScript library, supports X, Y, not evaluated
+JavaScript library (ECMAScript 6), supports X, Y, not evaluated
 
 Source: https://github.com/xdrr/cve.js
 
