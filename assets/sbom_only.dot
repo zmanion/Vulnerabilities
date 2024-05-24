@@ -1,0 +1,43 @@
+digraph "SBOM only" {
+
+	layout="dot"
+	fontname="helvetica"
+	label="Ivanti Connect Secure dependency on Apache XML Security"
+	
+	"shibboleth" [label="Shibboleth"]
+	"xmltooling" [label="XMLTooling"]
+	"opensaml" [label="OpenSAML"]
+	"shibboleth_service_provider" [label="Shibboleth Service Provider"]
+	"w3c" [label="W3C"]
+	"xml_signature_wg" [label="XML Signature WG"]
+	"rfc3275" [label="XML-Signature Syntax and Processing (RFC 3275)"]
+	"java" [label="Apache XML Security for Java"]
+	"cpp" [label="Apache XML Security for C++"]
+	"santuario" [label="Apache Santuario project"]
+	"asf" [label="Apache Software Foundation"]
+	"ics" [label="Ivanti Connect Secure"]
+	"ivanti" [label="Ivanti"]
+
+	"blank" [height = 0 style = "invis"]
+	rfc3275 -> blank [style = "invis"]
+
+	ivanti -> ics [label = "  supplies"]
+	ics -> xmltooling [label = " uses"]
+
+	asf -> santuario [label = "  includes"]
+	santuario -> java [label = "  supplies"]
+	santuario -> cpp [label = " supplies"]
+	java -> rfc3275 [label = " implements"]
+	cpp -> rfc3275 [label = "  implements"]
+
+	shibboleth -> xmltooling [label = " supplies"]
+	shibboleth -> opensaml [label = "  supplies"]
+	shibboleth -> shibboleth_service_provider [label = " supplies"]
+	opensaml -> xmltooling [label = "  uses"]
+	shibboleth_service_provider -> xmltooling [label = " uses"]
+	xmltooling -> cpp [label = " uses"]
+
+	w3c -> xml_signature_wg [label = "  includes"]
+	xml_signature_wg -> rfc3275 [label = " authors"]
+
+}
